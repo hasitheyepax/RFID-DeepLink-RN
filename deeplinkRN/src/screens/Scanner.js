@@ -1,6 +1,6 @@
 import {View, ActivityIndicator, StyleSheet} from 'react-native';
 import {useEffect, useState} from 'react';
-import NfcManager, {NfcTech} from 'react-native-nfc-manager';
+import NfcManager, {Ndef, NfcTech} from 'react-native-nfc-manager';
 
 export default function Scanner() {
   const [scannerActive, setScannerActive] = useState(true);
@@ -25,6 +25,10 @@ export default function Scanner() {
       // the resolved tag object will contain `ndefMessage` property
       const tag = await NfcManager.getTag();
       console.warn('Tag found', tag);
+      console.log(tag.ndefMessage[0].payload);
+      console.log(
+        String.fromCharCode(...tag.ndefMessage[0].payload).substring(3),
+      );
     } catch (ex) {
       console.warn('Oops!', ex);
     } finally {
