@@ -1,6 +1,7 @@
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import Home from '../screens/Home';
 import Scanner from '../screens/Scanner';
+import Writer from '../screens/Writer';
 
 const Stack = createNativeStackNavigator();
 
@@ -14,6 +15,7 @@ const PrimaryNavigator = () => (
       }}
     />
     <Stack.Screen name="Scanner" component={Scanner} />
+    <Stack.Screen name="Writer" component={Writer} />
   </Stack.Navigator>
 );
 

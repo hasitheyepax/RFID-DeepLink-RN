@@ -5,6 +5,10 @@ const Home = ({navigation}) => {
     navigation.navigate('Scanner');
   };
 
+  const handlerWriterPress = () => {
+    navigation.navigate('Writer');
+  };
+
   return (
     <View style={styles.container}>
       <View style={styles.top} />
@@ -12,6 +16,11 @@ const Home = ({navigation}) => {
         <Pressable onPress={handleOnPress}>
           <View style={styles.button}>
             <Text style={styles.buttonText}>{'Scan RFID'}</Text>
+          </View>
+        </Pressable>
+        <Pressable onPress={handlerWriterPress}>
+          <View style={styles.button}>
+            <Text style={styles.buttonText}>{'Write RFID Token'}</Text>
           </View>
         </Pressable>
       </View>
@@ -31,6 +40,8 @@ const styles = StyleSheet.create({
     paddingHorizontal: 50,
     paddingVertical: 20,
     borderRadius: 5,
+    marginTop: 10,
+    alignItems: 'center',
   },
   buttonText: {
     color: '#FFF',
